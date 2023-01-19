@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom left, #f93302 0%, #cbc9c1 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  height: 100vh;
+  margin-top: 0;
+  margin-bottom: 5%;
+}
+
+.title {
+  color: ghostwhite;
+  margin-bottom: 1rem;
+  font-size: 6rem;
+}
+
+.main {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+
+.main-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.35s;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #444;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 2rem;
+  border-radius: 50rem;
+  top: 3rem;
+  width: 50rem;
+  height: 4rem;
+}
+
+.setting-target {
+  height: 3rem;
+  width: 7rem;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  border-radius: 9px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.setting-start {
+  height: 3rem;
+  width: 15rem;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  border-radius: 9px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #b8dcf9;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.player {
+  flex: 60%;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+  width:40vw;
+  min-width: 39rem;
+  height: 57rem;
+}
+
+.player-background {
+  background-color: rgba(115, 114, 114, 0.6);
+  padding: 2rem;
+  border-radius: 9px;
+}
+
+.player1,
+.player2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+  margin: 1rem;
+  height: 14rem;
+}
+
+.name {
+  position: relative;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 7rem;
+  font-weight: 300;
+  color: #c7365f;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.player--active .name {
+  font-weight: 900;
+}
+.player--active .score {
+  font-weight: 900;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.arrow {
+  display: none;
+}
+
+.arrow--active {
+  display: block;
+  margin-top: 1.5rem;
+  width: 6rem;
+}
+
+.current {
+  margin: 0;
+  top: 0;
+  padding: 0;
+  background-color: #c7365f;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: auto;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  margin: auto;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  margin-left: 0rem;
+  top: 0;
+  padding: 0;
+  font-size: 3.5rem;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 900;
+  transition: all 0.35s;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.3rem 2rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn--roll {
+  top: 31rem;
+  width: 19rem;
+  height: 4rem;
+  font-size: 1.3rem;
+}
+.btn--fetch {
+  top: 38rem;
+  width: 19rem;
+  height: 4rem;
+  font-size: 1.3rem; 
+}
+
+.btn:active {
+  transform: translate(-50%, 5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.music--player {
+  position: absolute;
+  cursor: pointer;
+  font-weight: 900;
+  transition: all 0.35s;
+  top: 51rem;
+  width: 35rem;
+  height: 4rem;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  border-radius: 9px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.65);
+}
+
+.player--winner {
+  background-color: #06bc4f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1%;
+  }
+  .title {
+    margin-top:-6rem;
+    margin-bottom: 0.5rem;
+    font-size: 5rem;
+  }
+
+  .settings {
+    margin-top:-2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    width: 29rem;
+    height: 4rem;
+  }
+  
+  .setting-target {
+    height: 2.5rem;
+    width: 6rem;
+    padding-left: 0.5rem;
+  }
+  
+  .setting-start {
+    height: 2.5rem;
+    width: 7rem;
+    border-radius: 9px;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    font-weight: 400;
+  }
+
+  .player {
+    padding: 8rem;
+    width:47vw;
+    min-width: 15rem;
+    height: 67rem;
+  }
+
+  .player-background {
+    padding: 0.5rem;
+    border-radius: 9px;
+  }
+
+  .player1,
+  .player2 {
+    margin: 0.1 rem;
+    height: 18 rem;
+  }
+
+  .name {
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+  }
+
+  .score {
+    margin-top: 2rem;
+    font-size: 5rem;
+    font-weight: 300;
+  }
+
+  .current {
+    padding: 2rem;
+    height:10rem;
+  }
+
+  .arrow--active {
+    margin-top: 1rem;
+    width: 8rem;
+  }
+
+  /* ABSOLUTE POSITIONED ELEMENTS */
+
+  .roll-fetch-btn{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn--roll {
+    left: 50%;
+    top: 45rem;
+    width: 14rem;
+    height: 6rem;
+    font-size: 1.5rem;
+  }
+  .btn--fetch {
+    left: 50%;
+    top: 53rem;
+    width: 14rem;
+    height: 6rem;
+    font-size: 1.5rem;
+  }
+
+  .music--player {
+    top: 62rem;
+    width: 29rem;
+    height: 4rem;
+  }
+
+  .dice {
+    left: 50%;
+    top: 16.5rem;
+    transform: translateX(-50%);
+    height: 7rem;
+  }
+}
